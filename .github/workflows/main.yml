@@ -39,7 +39,7 @@ jobs:
 
       - name: Login to GHCR (Github Containe Registry)
         uses: docker/login-action@v1
-        if: github.event_name != 'pull_request
+        if: github.event_name != 'pull_request'
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
