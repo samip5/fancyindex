@@ -21,7 +21,7 @@ jobs:
         run: |
           DOCKER_IMAGE=samip537/fancyindex-darktheme
           PLATFORMS=amd64,arm,arm64
-          TAGS=${DOCKER_IMAGE}, ghcr.io/${{ github.repository_owner }}/fancyindex
+          TAGS=${DOCKER_IMAGE},ghcr.io/${{ github.repository_owner }}/fancyindex
 
           if [ "${{github.event_name}}" == "pull_request" ]; then
             echo ::set-output name=push::false
