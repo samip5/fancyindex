@@ -1,7 +1,6 @@
 FROM nginx:latest
-LABEL maintainer "fraoustin@gmail.com"
 
-ENV SET_CONTAINER_TIMEZONE false 
+ENV SET_CONTAINER_TIMEZONE false
 ENV CONTAINER_TIMEZONE ""
 ENV DISABLE_AUTH false
 
@@ -22,7 +21,7 @@ RUN apt-get update && apt-get install -y \
         git \
         nginx-extras \
         wget \
-    && rm -rf /var/lib/apt/lists/* 
+    && rm -rf /var/lib/apt/lists/*
 
 COPY ./src/nginx/* /etc/nginx/conf.d/
 RUN rm /etc/nginx/sites-enabled/default
@@ -37,7 +36,7 @@ RUN mkdir /theme
 WORKDIR /theme
 RUN wget https://github.com/alehaa/nginx-fancyindex-flat-theme/releases/download/v1.1/nginx-fancyindex-flat-theme-1.1.tar.gz && tar xvzf nginx-fancyindex-flat-theme-1.1.tar.gz && rm nginx-fancyindex-flat-theme-1.1.tar.gz && rm flat-theme/theme.css
 COPY ./src/theme.css flat-theme/theme.css
-#ENV COLOR "blue" 
+#ENV COLOR "blue"
 
 RUN mkdir /share
 VOLUME /share
