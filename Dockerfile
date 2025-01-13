@@ -8,11 +8,10 @@ COPY ./src/entrypoint.sh /entrypoint.sh
 USER root
 RUN chmod +x /entrypoint.sh
 
-# install extra nginx
+## install extra nginx
 RUN apt-get update && apt-get install -y \
         apache2-utils \
         git \
-        nginx-extras \
         wget \
     && rm -rf /var/lib/apt/lists/*
 
