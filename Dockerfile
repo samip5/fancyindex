@@ -1,4 +1,4 @@
-FROM nginx:latest
+FROM nginxinc/nginx-unprivileged:1.27-bookworm
 
 ENV SET_CONTAINER_TIMEZONE false
 ENV CONTAINER_TIMEZONE ""
