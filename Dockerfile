@@ -1,7 +1,11 @@
 FROM nginxinc/nginx-unprivileged:1.27-bookworm
 
+ARG UID=568
+ARG GID=568
+
 # manage start container
 COPY ./src/entrypoint.sh /entrypoint.sh
+USER root
 RUN chmod +x /entrypoint.sh
 
 # install extra nginx
@@ -25,10 +29,9 @@ COPY ./src/theme.css flat-theme/theme.css
 RUN mkdir /share
 VOLUME /share
 
-ENV WEBUSER user
-ENV WEBPASSWORD pass
+USER nginx
 
-EXPOSE 80
+EXPOSE 8080
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["app"]
